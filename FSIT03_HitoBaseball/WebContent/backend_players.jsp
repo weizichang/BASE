@@ -82,6 +82,7 @@ if(rs.next()) {
 			<div>
 				<img alt="menu" src="imgs/ball03_512px_LOGO.png" style= "width: 32px;">
 				<span style=" color: white; font-size: 28px ">HitoBaseball</span>
+				   
 					<div class="w3-dropdown-content w3-bar-block w3-border">
 						<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon01_512px.png" style=" width: 24px; ">&nbsp;Hito首頁</a>
 						<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon02_512px.png" style=" width: 24px; ">&nbsp;建立球隊</a>

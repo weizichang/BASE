@@ -41,18 +41,15 @@ public class PhotoUpload extends HttpServlet {
 					  	File file = req.getFile(strFile);
 					  	String FSName = req.getFilesystemName(strFile);
 					  	String upName = req.getOriginalFileName(strFile);
-					  	//out.println(upName + ":"+id+"←"+"  lenght:");
 					  	
 					  	
 					  	//檔名變更//teamid_logo.jpg
-					  	for(int i=0 ; i<4;i++){
-					  		String srcFilename = "C:\\Users\\WeiZiChang\\eclipse-workspace\\FSIT03_HitoBaseball\\WebContent\\upload\\"+upName;
-					  		String destFilename = "C:\\Users\\WeiZiChang\\eclipse-workspace\\FSIT03_HitoBaseball\\WebContent\\upload\\"+id+"_"+i+"_slides.png"; 
+					  	for(int i=0 ; i<4; i++){
+					  		String srcFilename = uploadPath+"\\"+upName;
+					  		System.out.println(srcFilename);
+					  		String destFilename = uploadPath+"\\"+id+"_"+i+"_slides.png"; 
 					  		boolean filechange = FileReName.rename(srcFilename, destFilename);
 					  	}
-					  	
-					  	
-					  	
 					  	
 					  }
 					  //request.getRequestDispatcher("MyTeam").forward(request, response);

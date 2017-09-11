@@ -8,7 +8,7 @@
   </welcome-file-list>
   <context-param>
     <param-name>upload-path</param-name>
-    <param-value>C:\Users\WeiZiChang\eclipse-workspace\FSIT03_HitoBaseball\WebContent\upload</param-value>
+    <param-value>C:\Users\WeiZiChang\git\FSIT03_HitoBaseball\FSIT03_HitoBaseball\WebContent\upload</param-value>
   </context-param>
   <context-param>
     <description>畫面樣板檔案放置路徑</description>

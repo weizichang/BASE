@@ -51,6 +51,7 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 	<div class="w3-bar w3-black">
     	<a href="#" class="w3-bar-item w3-button"></a>
     	<div class="w3-dropdown-hover">
+    	
 	    	<img alt="menu" src="imgs/ball03_512px_LOGO.png" style=" width: 32px; margin-bottom:10px ">
 			<span style=" color: white; font-size: 32px ">HitoBaseball</span>
 			
@@ -59,71 +60,41 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 				<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon02_512px.png" style=" width: 24px; ">&nbsp;編輯球隊</a>
 				<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon03_512px.png" style=" width: 24px; ">&nbsp;編輯球員</a>
 				<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon04_512px.png" style=" width: 24px; ">&nbsp;造訪球隊</a>
+				<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon03_512px.png" style=" width: 24px; ">&nbsp;預覽球隊主頁</a>
 				<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon05_512px.png" style=" width: 24px; ">&nbsp;登出</a>
 	       </div>
     	</div>
     </div>
-	
-	
-<div class="container">
+
 <!--我的球隊圖片，圖片及資料要變更-->
-<div class="myTeamArea">
-	 <div class="responsive">
-    	<div class="gallery">
-    		<!--照片位置-->
-	    	<div class="image-container_logo">
-	    		<img src="upload/<%= team.getTeamId() %>_logo.png" alt="logo" style="width:200px" >
-			   </div>
-                 
-            <!--上傳logo按鈕-->
-			<div class="logophotoArea">
-	    		<div class="teamimg" id="add">
-	        		<button style="font-size:10px" class="addLogoButton" style="width:auto;" id="demo">
-	        		<i class="fa fa-hand-o-right"></i>編輯球隊logo</button><!--待處理-->
-	    		</div>
-	  		</div>
+<div class="container">
+<br>
+<div class="w3-container w3-half ">
+	 <div class="w3-panel w3-leftbar w3-border-blue">
+  		<h2 class="w3-text-blue">Edit My TeamLogo</h2>
+  	</div>
+
+	<div class="w3-card-4 w3-gray" style="width:60%">
+	    <div class="w3-container w3-center">
+	      <img src="upload/<%= team.getTeamId() %>_logo.png" style="width:80%" alt="我的球隊logo">
+	
+	      <div class="w3-section">
+	        <button class="w3-button w3-teal" id="demo">上傳照片</button>
+	        <button class="w3-button w3-yellow">修改</button>
+	      </div>
 	    </div>
-	</div>
-		
-<!--彈出視窗按鈕-->
-	<div class="w3-modal" id="newteam">
-		<div class="container_m">
-			<section id="content">		
-				<span class="w3-button w3-display-topright w3-large" 
-			      onclick="document.getElementById('newteam').style.display='none'">&times;</span>	
-				<form action="LogoUpload" enctype="multipart/form-data" method="post">
-					<h1>編輯球隊logo</h1>
-					<div class="logoupload">
-						<input type="file"  title="上傳球隊logo" name="logo" data-filename-placement="inside" >
-					</div>
-					<div>
-						<input type="submit" value="設定為球隊logo" class="w3-button With w3-small w3-green">
-					</div>					
-				</form>
-			</section>
-		</div>	
-	</div>
-	    
-<!--顯示球隊訊息-->
-	<div class="team">
-		<p><%= team.getTeamname() %><br>
-		   FB網址：<%= team.getFb() %><br>
-		   E-mail：<%= team.getEmail() %>
-		</p>
-	</div>
+  </div>
 </div>
-	   
+
 <!--可修改球隊資料的內容-->
-<!-- <div class="w3-container"> -->
-	<div class="w3-panel w3-leftbar w3-border-blue">
-  		<h2 class="w3-text-blue">Edit My Team</h2>
+<div class="w3-container w3-half ">
+<div class="w3-panel w3-leftbar w3-border-blue">
+  		<h2 class="w3-text-blue">Edit My Team Information</h2>
   		<p><i>Change TeamName or FB_URL or E-mail_Address</i></p>
   	</div>
   	
-  	
-  
 	<form action="UpdateTeam">
-	  <table class="w3-table-all w3-card-4 w3-animate-left">
+	  <table class="w3-table-all w3-card-4 w3-animate-right">
 	  
 	    <thead>
 	      <tr class="w3-light-grey">
@@ -146,97 +117,111 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 	  <p><button class="w3-button w3-teal" type="submit">儲存變更</button></p>
 	   
 	</form>
+</div>
+<hr>
 
+<!--彈出視窗按鈕-->
+	<div class="w3-modal" id="newteam">
+		<div class="container_m">
+			<section id="content">		
+				<span class="w3-button w3-display-topright w3-large" 
+			      onclick="document.getElementById('newteam').style.display='none'">&times;</span>	
+				<form action="LogoUpload" enctype="multipart/form-data" method="post">
+					<h1>編輯球隊logo</h1>
+					<div class="logoupload">
+						<input type="file"  title="上傳球隊logo" name="logo" data-filename-placement="inside" >
+					</div>
+					<div>
+						<input type="submit" value="設定為球隊logo" class="w3-button With w3-small w3-green">
+					</div>					
+				</form>
+			</section>
+		</div>	
+	</div>
+
+	
+<div class="w3-container">
 <!--幻燈照片區-->
 	<div class="w3-panel w3-leftbar w3-border-blue">
-		<h2 class="w3-text-blue">Edit My SlideShow Photo</h2>
+		<h2 class="w3-text-blue">Edit Team's SlideShow Photo</h2>
 		<p><i>Edit My SlideShow Photo</i></p>
 	</div>
+</div>
+
+<form action="PhotoUpload" enctype="multipart/form-data" method="post">
+<div class="w3-container w3-quarter ">
+	<div class="w3-card-4 w3-gray" style="width:100%">
+	    <div class="w3-container w3-center">
+	      <img src="upload/<%= team.getTeamId() %>_0_slides.png" style="width:80%; margin-top: 10px;" alt="Team's SlideShow">
 	
-	<p><button class="w3-button w3-teal " type="submit" id="demo2" >上傳照片</button></p>
-  	
-
-<div class="teamImg">
-</div>
-    
-<!-- <!--上傳幻燈照片--> -->
-<!--   <div class="photoArea"> -->
-<!--     <div class="teamimg"> -->
-<!--     </div> -->
-<!--   </div> -->
-
-<!--彈出上傳活動照片視窗-->
-<div class="w3-modal" id="newteam2">
-	<div class="container_m">
-		<section id="content">		
-			<span class="w3-button w3-display-topright w3-large" 
-		     onclick="document.getElementById('newteam2').style.display='none'">&times;</span>	
-			<form action="PhotoUpload" enctype="multipart/form-data" method="post" id="my">
-                <h1>新增照片</h1>
-                <div class="logoupload">
-	                <input type="file" id="myFile" title="上傳照片" name="p1" data-filename-placement="inside">
-			        <input type="file" id="myFile" title="上傳照片" name="p2" data-filename-placement="inside">
-			        <input type="file" id="myFile" title="上傳照片" name="p3" data-filename-placement="inside">
-			        <input type="file" id="myFile" title="上傳照片" name="p4" data-filename-placement="inside">
-		        </div>
-		        <input type="submit" value="執行上傳" class="w3-button With w3-small w3-green">
-        	</form>
-		</section>
-	</div>	
-</div>
-
-<div class="teamImgArea">
-
-  <div class="responsive" >
-    <div class="gallery" >
-        <div class="image-container"><img src="upload\<%= team.getTeamId() %>_0_slides.png" alt="尚未上傳圖片"></div>
-        <form action="PhotoDelete" enctype="multipart/form-data" id="myp">
-        	<button class="imgDelete" type="submit" name="photo" value="p0">刪除</button>
-        </form>
-    </div>
-  </div>
-
-  <div class="responsive">
-    <div class="gallery">
-        <div class="image-container"><img src="upload\<%= team.getTeamId() %>_1_slides.png" alt="尚未上傳圖片"></div>
-        <form action="PhotoDelete" enctype="multipart/form-data" id="myp">
-        	<button type="submit" class="imgDelete" name="photo" value="p1">刪除</button>
-        </form>
-        
-        <form action="photoUpload.jsp" enctype="multipart/form-data" method="post" id="myp">
-        </form>
-    </div>
-  </div>
-
-  <div class="responsive">
-    <div class="gallery">
-        <div class="image-container"><img src="upload\<%= team.getTeamId() %>_2_slides.png" alt="尚未上傳圖片"></div>
-       <form action="PhotoDelete" enctype="multipart/form-data"  id="myp">
-        	<button class="imgDelete" name="photo" value="p2">刪除</button>
-        </form>
-    </div>
-  </div>
-
-  <div class="responsive">
-    <div class="gallery">
-        <div class="image-container"><img src="upload\<%= team.getTeamId() %>_3_slides.png" alt="尚未上傳圖片"></div>
-       <form action="PhotoDelete" enctype="multipart/form-data"  id="myp">
-        	<button class="imgDelete" name="photo" value="p3">刪除</button>
-        </form>
-    </div>
+	      <div class="w3-section">
+	      	<input type="file" title="SlideShow" id="myFile" name="p1" data-filename-placement="inside">
+	        <button class="w3-button w3-yellow">修改</button>
+	      </div>
+	    </div>
   </div>
 </div>
+
+<div class="w3-container w3-quarter ">
+
+	<div class="w3-card-4 w3-gray" style="width:100%">
+	    <div class="w3-container w3-center">
+	      <img src="upload/<%= team.getTeamId() %>_1_slides.png" style="width:80%; margin-top: 10px;" alt="Team's SlideShow">
+	
+	      <div class="w3-section">
+	        <input type="file" title="SlideShow" id="myFile" name="p2" data-filename-placement="inside">
+	        <button class="w3-button w3-yellow">修改</button>
+	      </div>
+	    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-quarter ">
+
+	<div class="w3-card-4 w3-gray" style="width:100%">
+	    <div class="w3-container w3-center">
+	      <img src="upload/<%= team.getTeamId() %>_2_slides.png" style="width:80%; margin-top: 10px;" alt="Team's SlideShow">
+	
+	      <div class="w3-section">
+	        <input type="file" title="SlideShow" id="myFile" name="p3" data-filename-placement="inside">
+	        <button class="w3-button w3-yellow">修改</button>
+	      </div>
+	    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-quarter ">
+
+	<div class="w3-card-4 w3-gray" style="width:100%">
+	    <div class="w3-container w3-center">
+	      <img src="upload/<%= team.getTeamId() %>_3_slides.png" style="width:80%; margin-top: 10px;" alt="Team's SlideShow">
+	
+	      <div class="w3-section">
+	        <input type="file" title="SlideShow" id="myFile" name="p4" data-filename-placement="inside">
+	        <button class="w3-button w3-yellow">修改</button>
+	      </div>
+	    </div>
+  </div>
+</div>
+
+	 <p><button class="w3-button w3-teal" type="submit">執行上傳</button></p>
+
+</form>
+
 </div>
 </div><!--ALL-div-->
 
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+<div style=" text-align: center; background-color: #203562; color: white ">
+   <p>Footer Text</p> 
+   <p>Footer Text</p> 
+   <p>Footer Text</p> 
+</div>
+
 </body>
 
-<script>
 
+<script>
 function addteam(){
 	  document.getElementById('id01').style.display='block';
 	}
@@ -245,12 +230,27 @@ function addteam(){
 var demo = document.getElementById("demo");
 var demomodal = document.getElementById("newteam");
 var demo2 = document.getElementById("demo2");
+var demo3 = document.getElementById("demo3");
+var demo4 = document.getElementById("demo4");
+var demo5 = document.getElementById("demo5");
 
 	demo.onclick = function() { 
 		newteam.style.display = "block";
 		console.log("newteam open");
 	}
 	demo2.onclick = function() { 
+		newteam2.style.display = "block"; 
+		console.log("demo2 open");
+	}
+	demo3.onclick = function() { 
+		newteam2.style.display = "block"; 
+		console.log("demo3 open");
+	}
+	demo4.onclick = function() { 
+		newteam2.style.display = "block"; 
+		console.log("demo2 open");
+	}
+	demo5.onclick = function() { 
 		newteam2.style.display = "block"; 
 		console.log("demo2 open");
 	}
@@ -266,7 +266,9 @@ window.onclick = function(event) {
     }
 }
 
+</script>
 
+<script>
 //上傳按鈕API
 /*
 Bootstrap - File Input
@@ -395,17 +397,6 @@ $('link[rel=stylesheet]').eq(0).before(cssHtml);
 $('input[type=file]').bootstrapFileInput();
 $('.file-inputs').bootstrapFileInput();
 
-
-// function addimg() {
-// 	  var objdiv = document.getElementById("addModal");
-// var x = document.createElement("input");
-// //x.setAttribute("type", "file");
-// x.setAttribute("class", "w3-section w3-padding");
-// x.setAttribute("id", "myFile");
-// x.setAttribute("title", "上傳照片");
-// x.setAttribute("data-filename-placement", "inside");
-// objdiv.appendChild(x);
-// } 
 
 </script>
 </html>
