@@ -1,3 +1,7 @@
+body {
+		font-family: Helvetica, Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", Meiryo, "微軟正黑體", "Microsoft JhengHei", sans-serif;
+		}
+
 .addButton {
   height: 50px;
   width: 150px;
@@ -32,14 +36,6 @@ footer {
 td {
     text-align: center;
     padding: 8px;
-}
-
-
-th { 
-    text-align: center;
-    padding: 8px;
-    background-color: #8FBAF3;
-    color: white;
 }
 
 
@@ -84,14 +80,19 @@ tr:nth-child(even){
 }
 
 
-.img {
-    border: 10px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: auto;
-    max-width: 100%;
+/* .img { */
+/*     border: 10px solid #ddd; */
+/*     border-radius: 4px; */
+/*     padding: 5px; */
+/*     margin-top: 10px; */
+/*     margin-bottom: 10px; */
+/*     height: auto; */
+/*     max-width: 100%; */
+/* } */
+
+.img{
+	margin-top: 20px;
+	margin-bottom: -20px;
 }
 
 

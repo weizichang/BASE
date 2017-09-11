@@ -41,37 +41,30 @@ TeamModel team =(TeamModel) request.getAttribute("team");
     <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
     <link rel="stylesheet" href="css/api_bootstrap-multiselect.css" type="text/css"/>
-    
-<style>
-	body {
-		font-family: Helvetica, Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", Meiryo, "微軟正黑體", "Microsoft JhengHei", sans-serif;
-		}
-</style>  
-
 </head>
 
 
 
 <body>
-<div class="play"><!--ALLdiv-->
-<!--頁籤 -->
-<nav class="navbar navbar-inverse">
-      		<div class="collapse navbar-collapse" id="myNavbar">
-				<div>
-					<img alt="menu" src="imgs/ball03_512px_LOGO.png" style= "width: 32px;">
-					<span style=" color: white; font-size: 28px ">HitoBaseball</span>
-						<div class="w3-dropdown-content w3-bar-block w3-border">
-							<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon01_512px.png" style=" width: 24px; ">&nbsp;Hito首頁</a>
-							<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon02_512px.png" style=" width: 24px; ">&nbsp;建立球隊</a>
-							<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon03_512px.png" style=" width: 24px; ">&nbsp;編輯球隊</a>
-							<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon04_512px.png" style=" width: 24px; ">&nbsp;造訪球隊</a>
-							<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon05_512px.png" style=" width: 24px; ">&nbsp;快速登入</a>
-						</div>
-				</div>
-      		</div>
-   </nav>
-    
-<!--ALLdiv-->
+<div class="w3-container">
+	<!--頁籤 -->
+	<div class="w3-bar w3-black">
+    	<a href="#" class="w3-bar-item w3-button"></a>
+    	<div class="w3-dropdown-hover">
+	    	<img alt="menu" src="imgs/ball03_512px_LOGO.png" style=" width: 32px; margin-bottom:10px ">
+			<span style=" color: white; font-size: 32px ">HitoBaseball</span>
+			
+	      	<div class="w3-dropdown-content w3-bar-block w3-card-4">
+	        	<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon01_512px.png" style=" width: 24px; ">&nbsp;Hito首頁</a>
+				<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon02_512px.png" style=" width: 24px; ">&nbsp;編輯球隊</a>
+				<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon03_512px.png" style=" width: 24px; ">&nbsp;編輯球員</a>
+				<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon04_512px.png" style=" width: 24px; ">&nbsp;造訪球隊</a>
+				<a href="#" class="w3-bar-item w3-button" style=" font-size: 16px; ">&nbsp;<img src="imgs/menuicon05_512px.png" style=" width: 24px; ">&nbsp;登出</a>
+	       </div>
+    	</div>
+    </div>
+	
+	
 <div class="container">
 <!--我的球隊圖片，圖片及資料要變更-->
 <div class="myTeamArea">
@@ -120,79 +113,59 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 	</div>
 </div>
 	   
-	  
-<!--頁籤-->
-<nav class="navbar navbar-inverse bg-inverse">
-  <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#listbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-  </div>
-      
-	<div class="collapse navbar-collapse" id="listbar">
-	    <ul class="nav navbar-nav">
-	        <li class="active"><a href="MyTeam" >編輯球隊資料</a></li>
-	        <li><a lass="nav-link" href="backend_players.jsp">編輯球員資料</a></li>
-	        <li><a lass="nav-link" href="">賽程查詢/預排</a></li>
-	        <li><a lass="nav-link" href="">紀錄查詢/修改</a></li>
-	        <li><a lass="nav-link" href="">Preview</a></li>
-	    </ul>
-</div>
-</nav>
-
-
 <!--可修改球隊資料的內容-->
-<div id="team">
+<!-- <div class="w3-container"> -->
+	<div class="w3-panel w3-leftbar w3-border-blue">
+  		<h2 class="w3-text-blue">Edit My Team</h2>
+  		<p><i>Change TeamName or FB_URL or E-mail_Address</i></p>
+  	</div>
+  	
+  	
+  
 	<form action="UpdateTeam">
-	  <table id="miyazaki">
-	    <tr id="tablenone">
-	      <th>球隊名稱</th>
-	      <th>FB網址</th></th>
-	      <th>E-mail</th>
-	    </tr>
+	  <table class="w3-table-all w3-card-4 w3-animate-left">
 	  
+	    <thead>
+	      <tr class="w3-light-grey">
+	        <th>球隊名稱</th>
+	        <th>FB_URL</th>
+	        <th>E-mail_Address</th>
+	      </tr>
+	    </thead>
+	    
 	    <tr>
-	      <td><!--球隊名稱-->
-	      <input name="teamName" type="text" class="inputA" value=<%= team.getTeamname() %>>
-	      </td>
-	        
-	      <td><!--FB網址-->
-	      <input name="fb" type="text" class="inputB" value=<%= team.getFb() %>>
-	      </td>
-	        
-	      <td><!--聯絡E-mail-->
-	      <input name="email" type="text" class="inputB" value=<%= team.getEmail() %>>
-	      </td>
+	      <td contenteditable="true">
+	      		<input class="w3-input" name="teamName" type="text"  value=<%= team.getTeamname() %>></td>
+	      <td contenteditable="true">
+	      		<input class="w3-input" name="fb" type="text" value=<%= team.getFb() %>></td>
+	      <td contenteditable="true">
+	      		<input class="w3-input" name="email" type="text" value=<%= team.getEmail() %>></td>
 	    </tr>
-	      
-	  </table>
-	
-	  <div class="scbutton">
-	    <button type="submit" class="saveButton">儲存變更</button>
-		<!--<button onclick="cancel()" class="cancelButton">取消</button> -->
-	  </div>
-	  
+	  </table><br>
+	   
+	  <p><button class="w3-button w3-teal" type="submit">儲存變更</button></p>
+	   
 	</form>
-</div>
-
-
-<hr>  
 
 <!--幻燈照片區-->
+	<div class="w3-panel w3-leftbar w3-border-blue">
+		<h2 class="w3-text-blue">Edit My SlideShow Photo</h2>
+		<p><i>Edit My SlideShow Photo</i></p>
+	</div>
+	
+	<p><button class="w3-button w3-teal " type="submit" id="demo2" >上傳照片</button></p>
+  	
+
 <div class="teamImg">
-  <P><img src="upload/baseball.png" width="80px">球隊活動照片 </p>
 </div>
     
-<!--上傳幻燈照片-->
-  <div class="photoArea">
-    <div class="teamimg">
-        <button style="font-size:30px" class="addButton" style="width:auto;" id="demo2">上傳照片</button>
-    </div>
-  </div>
+<!-- <!--上傳幻燈照片--> -->
+<!--   <div class="photoArea"> -->
+<!--     <div class="teamimg"> -->
+<!--     </div> -->
+<!--   </div> -->
 
 <!--彈出上傳活動照片視窗-->
-
 <div class="w3-modal" id="newteam2">
 	<div class="container_m">
 		<section id="content">		
