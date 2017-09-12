@@ -76,11 +76,17 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 
 	<div class="w3-card-4 w3-gray" style="width:60%">
 	    <div class="w3-container w3-center">
-	      <img src="upload/<%= team.getTeamId() %>_logo.png" style="width:80%" alt="我的球隊logo">
-	
-	      <div class="w3-section">
-	        <button class="w3-button w3-teal" id="demo">上傳照片</button>
-	        <button class="w3-button w3-yellow">修改</button>
+	      <img src="upload/<%= team.getTeamId() %>_logo.png" style="width:80%; margin-top: 10px;" alt="我的球隊logo">
+		  
+		  <form action="LogoUpload" enctype="multipart/form-data" method="post">
+		      <div class="w3-section">
+		        <div>
+			        <img class="preview" style="max-width: 150px; max-height: 150px;margin-bottom: 15px;">
+	    		</div>
+			        <input type="file" title="logo" id="myFile" name="logo" data-filename-placement="inside" class="upl">
+			        <button type="submit" class="w3-button w3-yellow">確定</button>
+	       </form>
+	        
 	      </div>
 	    </div>
   </div>
@@ -90,7 +96,7 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 <div class="w3-container w3-half ">
 <div class="w3-panel w3-leftbar w3-border-blue">
   		<h2 class="w3-text-blue">Edit My Team Information</h2>
-  		<p><i>Change TeamName or FB_URL or E-mail_Address</i></p>
+  		<p style="color: white;"><i>Change TeamName or FB_URL or E-mail_Address</i></p>
   	</div>
   	
 	<form action="UpdateTeam">
@@ -103,7 +109,7 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 	        <th>E-mail_Address</th>
 	      </tr>
 	    </thead>
-	    
+	  	
 	    <tr>
 	      <td contenteditable="true">
 	      		<input class="w3-input" name="teamName" type="text"  value=<%= team.getTeamname() %>></td>
@@ -111,40 +117,19 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 	      		<input class="w3-input" name="fb" type="text" value=<%= team.getFb() %>></td>
 	      <td contenteditable="true">
 	      		<input class="w3-input" name="email" type="text" value=<%= team.getEmail() %>></td>
-	    </tr>
-	  </table><br>
-	   
+	  	</tr>
+	  </table>
+	  <br>
 	  <p><button class="w3-button w3-teal" type="submit">儲存變更</button></p>
 	   
 	</form>
 </div>
-<hr>
 
-<!--彈出視窗按鈕-->
-	<div class="w3-modal" id="newteam">
-		<div class="container_m">
-			<section id="content">		
-				<span class="w3-button w3-display-topright w3-large" 
-			      onclick="document.getElementById('newteam').style.display='none'">&times;</span>	
-				<form action="LogoUpload" enctype="multipart/form-data" method="post">
-					<h1>編輯球隊logo</h1>
-					<div class="logoupload">
-						<input type="file"  title="上傳球隊logo" name="logo" data-filename-placement="inside" >
-					</div>
-					<div>
-						<input type="submit" value="設定為球隊logo" class="w3-button With w3-small w3-green">
-					</div>					
-				</form>
-			</section>
-		</div>	
-	</div>
-
-	
 <div class="w3-container">
-<!--幻燈照片區-->
+<!--幻燈照片區--><hr>
 	<div class="w3-panel w3-leftbar w3-border-blue">
 		<h2 class="w3-text-blue">Edit Team's SlideShow Photo</h2>
-		<p><i>Edit My SlideShow Photo</i></p>
+		<p style="color: white;"><i>Edit My SlideShow Photo</i></p>
 	</div>
 </div>
 
@@ -155,7 +140,10 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 	      <img src="upload/<%= team.getTeamId() %>_0_slides.png" style="width:80%; margin-top: 10px;" alt="Team's SlideShow">
 	
 	      <div class="w3-section">
-	      	<input type="file" title="SlideShow" id="myFile" name="p1" data-filename-placement="inside">
+	      	 <div>
+			 	<img class="preview1" style="max-width: 150px; max-height: 150px;margin-bottom: 15px;">
+	    	 </div>
+	      	<input type="file" title="SlideShow" id="myFile" name="p1" data-filename-placement="inside" class="upl1">
 	        <button class="w3-button w3-yellow">修改</button>
 	      </div>
 	    </div>
@@ -169,7 +157,10 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 	      <img src="upload/<%= team.getTeamId() %>_1_slides.png" style="width:80%; margin-top: 10px;" alt="Team's SlideShow">
 	
 	      <div class="w3-section">
-	        <input type="file" title="SlideShow" id="myFile" name="p2" data-filename-placement="inside">
+	         <div>
+			 	<img class="preview2" style="max-width: 150px; max-height: 150px;margin-bottom: 15px;">
+	    	 </div>
+	        <input type="file" title="SlideShow" id="myFile" name="p2" data-filename-placement="inside" class="upl2">
 	        <button class="w3-button w3-yellow">修改</button>
 	      </div>
 	    </div>
@@ -181,9 +172,11 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 	<div class="w3-card-4 w3-gray" style="width:100%">
 	    <div class="w3-container w3-center">
 	      <img src="upload/<%= team.getTeamId() %>_2_slides.png" style="width:80%; margin-top: 10px;" alt="Team's SlideShow">
-	
 	      <div class="w3-section">
-	        <input type="file" title="SlideShow" id="myFile" name="p3" data-filename-placement="inside">
+	         <div>
+			 	<img class="preview3" style="max-width: 150px; max-height: 150px;margin-bottom: 15px;">
+	    	 </div>
+	        <input type="file" title="SlideShow" id="myFile" name="p3" data-filename-placement="inside" class="upl3">
 	        <button class="w3-button w3-yellow">修改</button>
 	      </div>
 	    </div>
@@ -197,15 +190,20 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 	      <img src="upload/<%= team.getTeamId() %>_3_slides.png" style="width:80%; margin-top: 10px;" alt="Team's SlideShow">
 	
 	      <div class="w3-section">
-	        <input type="file" title="SlideShow" id="myFile" name="p4" data-filename-placement="inside">
+	         <div>
+			 	<img class="preview4" style="max-width: 150px; max-height: 150px;margin-bottom: 15px;">
+	    	 </div>
+	        <input type="file" title="SlideShow" id="myFile" name="p4" data-filename-placement="inside" class="upl4">
 	        <button class="w3-button w3-yellow">修改</button>
 	      </div>
 	    </div>
   </div>
 </div>
-
-	 <p><button class="w3-button w3-teal" type="submit">執行上傳</button></p>
-
+	<div class="w3-container">
+		<p class="w3-right">
+			<button class="w3-button w3-teal" type="submit" style="margin-top: 15px;">執行上傳</button>
+		</p>
+	</div>
 </form>
 
 </div>
@@ -222,51 +220,129 @@ TeamModel team =(TeamModel) request.getAttribute("team");
 
 
 <script>
-function addteam(){
-	  document.getElementById('id01').style.display='block';
-	}
-
-//open the LoginModal
-var demo = document.getElementById("demo");
-var demomodal = document.getElementById("newteam");
-var demo2 = document.getElementById("demo2");
-var demo3 = document.getElementById("demo3");
-var demo4 = document.getElementById("demo4");
-var demo5 = document.getElementById("demo5");
-
-	demo.onclick = function() { 
-		newteam.style.display = "block";
-		console.log("newteam open");
-	}
-	demo2.onclick = function() { 
-		newteam2.style.display = "block"; 
-		console.log("demo2 open");
-	}
-	demo3.onclick = function() { 
-		newteam2.style.display = "block"; 
-		console.log("demo3 open");
-	}
-	demo4.onclick = function() { 
-		newteam2.style.display = "block"; 
-		console.log("demo2 open");
-	}
-	demo5.onclick = function() { 
-		newteam2.style.display = "block"; 
-		console.log("demo2 open");
-	}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == newteam) {
-    	newteam.style.display = "none";
-    	console.log("newteam close");
-    }else if (event.target == newteam2) {
-    	newteam2.style.display = "none";
-    	console.log("demo2 close");
+//logo
+$(function (){
+    function format_float(num, pos)
+    {
+        var size = Math.pow(10, pos);
+        return Math.round(num * size) / size;
     }
-}
+ 
+    function preview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+ 
+    $("body").on("change", ".upl", function (){
+        preview(this);
+    })
+});
+
+
+//p1
+$(function (){
+    function format_float(num, pos)
+    {
+        var size = Math.pow(10, pos);
+        return Math.round(num * size) / size;
+    }
+ 
+    function preview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.preview1').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+ 
+    $("body").on("change", ".upl1", function (){
+        preview(this);
+    })
+});
+
+//p2
+$(function (){
+    function format_float(num, pos)
+    {
+        var size = Math.pow(10, pos);
+        return Math.round(num * size) / size;
+    }
+ 
+    function preview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.preview2').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+ 
+    $("body").on("change", ".upl2", function (){
+        preview(this);
+    })
+});
+
+//p3
+$(function (){
+    function format_float(num, pos)
+    {
+        var size = Math.pow(10, pos);
+        return Math.round(num * size) / size;
+    }
+ 
+    function preview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.preview3').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+ 
+    $("body").on("change", ".upl3", function (){
+        preview(this);
+    })
+});
+
+//p4
+//p1
+$(function (){
+    function format_float(num, pos)
+    {
+        var size = Math.pow(10, pos);
+        return Math.round(num * size) / size;
+    }
+ 
+    function preview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.preview4').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+ 
+    $("body").on("change", ".upl4", function (){
+        preview(this);
+    })
+});
+
+
 
 </script>
+
+
+
 
 <script>
 //上傳按鈕API

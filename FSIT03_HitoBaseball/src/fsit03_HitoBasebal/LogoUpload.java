@@ -25,7 +25,7 @@ public class LogoUpload extends HttpServlet {
 			  request.setCharacterEncoding("UTF-8");
 			  
 			  String uploadPath = 
-					 getServletContext().getInitParameter("upload-path");
+					  getServletContext().getInitParameter("upload-path");
 					  MultipartRequest req = new MultipartRequest(request,uploadPath,"UTF-8");
 
 					  Enumeration items = req.getFileNames();
@@ -39,23 +39,18 @@ public class LogoUpload extends HttpServlet {
 					  	File file = req.getFile(strFile);
 					  	String FSName = req.getFilesystemName(strFile);
 					  	String upName = req.getOriginalFileName(strFile);
-					  	//out.println(upName + ":"+id+"←"+"  lenght:");
 					  	
 					  	
 					  	//檔名變更//teamid_logo.jpg
-					  	String srcFilename = "C:\\Users\\WeiZiChang\\eclipse-workspace\\FSIT03_HitoBaseball\\WebContent\\upload\\"+upName;
-						String destFilename = "C:\\Users\\WeiZiChang\\eclipse-workspace\\FSIT03_HitoBaseball\\WebContent\\upload\\"+id+"_logo.png"; 
-						boolean filechange = FileReName.rename(srcFilename, destFilename);
-					  	
+				  		String srcFilename = uploadPath+"\\"+upName;
+				  		System.out.println(srcFilename);
+				  		String destFilename = uploadPath+"\\"+id+"_logo.png"; 
+				  		boolean filechange = FileReName.rename(srcFilename, destFilename);
 					  	
 					  }
 					  //request.getRequestDispatcher("MyTeam").forward(request, response);
-					  
-					  response.sendRedirect("MyTeam");
-			  
-			  
+					  //response.sendRedirect("MyTeam");
 	}
-	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
